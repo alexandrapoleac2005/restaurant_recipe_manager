@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Perechi ingrediente</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1 th:text="${titlu}">Titlu</h1>
+    <p class="subtitle">Cerinta 7.04 b)</p>
+
+    <p th:if="${#lists.isEmpty(perechi)}" class="empty">
+        Nu exista perechi de ingrediente folosite in retete diferite cu aceeasi cantitate si unitate de masura.
+    </p>
+
+    <table th:unless="${#lists.isEmpty(perechi)}">
+        <tr>
+            <th style="width: 50px">Nr.</th>
+            <th>ID ingredient 1</th>
+            <th>ID ingredient 2</th>
+        </tr>
+        <tr th:each="p, it : ${perechi}">
+            <td th:text="${it.count}">1</td>
+            <td th:text="${p[0]}">1</td>
+            <td th:text="${p[1]}">2</td>
+        </tr>
+    </table>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

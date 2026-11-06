@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Procedura stocata</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1>Procedura stocata - exceptii</h1>
+    <p class="subtitle">Rezultatele intoarse de procedura stocata</p>
+
+    <form th:action="@{/api/procedura-stocata}" method="get" class="inline">
+        <input type="text" name="cautare" placeholder="ex: Supa fara apa" th:value="${ultimaCautare}">
+        <button type="submit">Cauta</button>
+    </form>
+
+    <p th:if="${#lists.isEmpty(exceptii)}" class="empty">Nu exista rezultate.</p>
+
+    <table th:unless="${#lists.isEmpty(exceptii)}">
+        <tr>
+            <th>Reteta</th>
+            <th>Autor</th>
+            <th>Exceptie</th>
+        </tr>
+        <tr th:each="ex : ${exceptii}">
+            <td th:text="${ex.nume}"></td>
+            <td th:text="${ex.autor}"></td>
+            <td th:text="${ex.naturaExceptiei}"></td>
+        </tr>
+    </table>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

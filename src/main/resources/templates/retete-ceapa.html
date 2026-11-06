@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Retete cu ceapa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1 th:text="${titlu}">Titlu</h1>
+    <p class="subtitle">Cerinta 7.04 a)</p>
+
+    <p th:if="${#lists.isEmpty(date)}" class="empty">
+        Nu exista nicio reteta care sa foloseasca exact 500g de ceapa.
+    </p>
+
+    <table th:unless="${#lists.isEmpty(date)}">
+        <tr>
+            <th>Reteta</th>
+            <th>Descriere</th>
+            <th>Categorie</th>
+        </tr>
+        <tr th:each="fila : ${date}">
+            <td th:text="${fila[0]}">Nume</td>
+            <td th:text="${fila[1]}">Descriere</td>
+            <td th:text="${fila[2]}">Tip</td>
+        </tr>
+    </table>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

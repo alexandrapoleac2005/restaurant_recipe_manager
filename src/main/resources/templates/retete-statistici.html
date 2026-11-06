@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistici timp</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1 th:text="${titlu}">Titlu</h1>
+    <p class="subtitle">Cerinta 7.06 a) - valori in minute</p>
+
+    <table>
+        <tr>
+            <th>Categorie</th>
+            <th class="num">Minim</th>
+            <th class="num">Maxim</th>
+            <th class="num">Medie</th>
+        </tr>
+        <tr th:each="s : ${statistici}">
+            <td th:text="${s[0]}">Categorie</td>
+            <td class="num" th:text="${s[1]}">0</td>
+            <td class="num" th:text="${s[2]}">0</td>
+            <td class="num" th:text="${#numbers.formatDecimal(s[3], 1, 2)}">0</td>
+        </tr>
+    </table>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

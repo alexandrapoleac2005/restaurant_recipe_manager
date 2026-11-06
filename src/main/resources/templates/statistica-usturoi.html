@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Media usturoi</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1 th:text="${titlu}">Titlu</h1>
+    <p class="subtitle">Cerinta 7.06 b)</p>
+
+    <p>Media cantitatii de usturoi din retetele care contin "toc" in nume:</p>
+    <p class="result" th:text="${#numbers.formatDecimal(media, 1, 2)}">0.00</p>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

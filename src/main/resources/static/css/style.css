@@ -1,0 +1,274 @@
+:root {
+    --accent: #9c3d22;
+    --accent-dark: #6e2a17;
+    --gold: #d9a441;
+    --cream: #faf5ec;
+    --paper: #fffdf8;
+    --line: #e6dccb;
+    --text: #2b2420;
+    --muted: #7a6d63;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--cream);
+}
+
+/* header */
+
+header {
+    background: var(--accent-dark);
+    border-bottom: 4px solid var(--gold);
+    padding: 14px 0;
+}
+
+header a {
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-style: italic;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+header a:hover {
+    color: var(--gold);
+}
+
+/* main box */
+
+.content {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px 35px 30px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--accent);
+    box-shadow: 0 2px 6px rgba(80, 50, 20, 0.08);
+}
+
+header .content {
+    margin: 0 auto;
+    padding: 0 35px;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--accent-dark);
+}
+
+h1 {
+    font-size: 26px;
+    margin: 0 0 4px;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    margin-top: 8px;
+    background: var(--gold);
+}
+
+h2 {
+    font-size: 19px;
+    margin: 28px 0 10px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-style: italic;
+    margin: 6px 0 22px;
+}
+
+a {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+/* tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+}
+
+th {
+    color: var(--accent-dark);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--accent);
+}
+
+tr:hover td {
+    background: #fbf0e2;
+}
+
+td.num, th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* home page "menu" */
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    display: flex;
+    align-items: baseline;
+    padding: 9px 4px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: var(--accent);
+}
+
+.menu .dots {
+    flex: 1;
+    margin: 0 8px;
+    border-bottom: 2px dotted #c9b9a3;
+}
+
+.menu .code {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.menu .note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-left: 6px;
+}
+
+/* messages, forms, buttons */
+
+.empty {
+    padding: 12px 15px;
+    background: #fdf3e1;
+    border-left: 4px solid var(--gold);
+}
+
+.back {
+    display: inline-block;
+    margin-top: 22px;
+    text-decoration: none;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+form.inline {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+input[type=text] {
+    padding: 8px 10px;
+    border: 1px solid #cbbba6;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+}
+
+input[type=text]:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+form.inline input[type=text] {
+    flex: 1;
+}
+
+button {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent-dark);
+}
+
+/* categories page */
+
+.layout {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+}
+
+.layout .form-box {
+    width: 260px;
+    padding: 5px 20px 20px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+}
+
+.layout .form-box label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.layout .form-box input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+.layout .list-box {
+    flex: 1;
+}
+
+a.danger {
+    color: #b3261e;
+}
+
+/* single result (garlic average) */
+
+.result {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    color: var(--accent);
+    margin: 10px 0 0;
+}
+
+.result small {
+    font-size: 16px;
+    color: var(--muted);
+}

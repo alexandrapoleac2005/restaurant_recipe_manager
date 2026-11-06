@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorii</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1>Categorii</h1>
+
+    <div class="layout">
+        <div class="form-box">
+            <h2 th:text="${categorieNoua.id == null ? 'Adauga categorie' : 'Editeaza categorie'}"></h2>
+            <form th:action="@{/api/save-cat}" th:object="${categorieNoua}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <label for="tip">Nume categorie</label>
+                <input type="text" id="tip" th:field="*{tip}" required>
+                <button type="submit">Salveaza</button>
+                <a th:if="${categorieNoua.id != null}" th:href="@{/api/categorii}">Anuleaza</a>
+            </form>
+        </div>
+
+        <div class="list-box">
+            <h2>Categorii existente</h2>
+            <table>
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Tip</th>
+                    <th style="width: 120px"></th>
+                </tr>
+                <tr th:each="cat : ${categorii}">
+                    <td th:text="${cat.id}"></td>
+                    <td th:text="${cat.tip}"></td>
+                    <td>
+                        <a th:href="@{/api/edit-cat/{id}(id=${cat.id})}">Editeaza</a> |
+                        <a th:href="@{/api/delete-cat/{id}(id=${cat.id})}" class="danger"
+                           onclick="return confirm('Stergi categoria?')">Sterge</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

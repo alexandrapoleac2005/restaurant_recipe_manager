@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingrediente</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1 th:text="${titlu}">Titlu</h1>
+    <p class="subtitle">Cerinta 7.03 b)</p>
+
+    <p th:if="${#lists.isEmpty(ingrediente)}" class="empty">
+        Nu s-a gasit niciun ingredient care sa contina litera 'e'.
+    </p>
+
+    <table th:unless="${#lists.isEmpty(ingrediente)}">
+        <tr>
+            <th style="width: 50px">Nr.</th>
+            <th>Ingredient</th>
+        </tr>
+        <tr th:each="ing, it : ${ingrediente}">
+            <td th:text="${it.count}">1</td>
+            <td th:text="${ing.ingredient}">Ingredient</td>
+        </tr>
+    </table>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Retete cu usturoi</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+
+<div class="content">
+    <h1 th:text="${titlu}">Titlu</h1>
+    <p class="subtitle">Cerinta 7.05 b)</p>
+
+    <p th:if="${#lists.isEmpty(retete)}" class="empty">Nu exista retete care sa respecte conditia.</p>
+
+    <table th:unless="${#lists.isEmpty(retete)}">
+        <tr>
+            <th>Reteta</th>
+            <th class="num">Timp (min)</th>
+            <th>Vegetariana</th>
+            <th>Autor</th>
+        </tr>
+        <tr th:each="r : ${retete}">
+            <td th:text="${r.nume}"></td>
+            <td class="num" th:text="${r.timpPreparare}"></td>
+            <td th:text="${r.vegetariana == 'D' ? 'Da' : 'Nu'}"></td>
+            <td th:text="${r.autor}"></td>
+        </tr>
+    </table>
+
+    <a th:replace="~{fragments :: back}"></a>
+</div>
+</body>
+</html>
